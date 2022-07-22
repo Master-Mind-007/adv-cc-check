@@ -209,7 +209,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $resp2 = curl_exec($ch);
                 $session = trim(strip_tags(capture($resp2,'sessionId:','}')));
                 $sesstok = str_replace("'","","$session");
-                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm"
+                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm";
 
             /////////////////////////------------REQ--3--------------////////////////////////////////
 
