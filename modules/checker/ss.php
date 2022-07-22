@@ -209,12 +209,12 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $resp2 = curl_exec($ch);
                 $session = trim(strip_tags(capture($resp2,'sessionId:','}')));
                 $sesstok = str_replace("'","","$session");
-                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm";
+                $url = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm";
 
             /////////////////////////------------REQ--3--------------////////////////////////////////
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $confirmurl);
+            curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -388,7 +388,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Resp5 - $resp5
+Result -» $result2 | RESP3 -$resp3 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Resp5 - $resp5
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
