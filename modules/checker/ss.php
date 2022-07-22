@@ -207,7 +207,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
             curl_setopt($ch, CURLOPT_POSTFIELDS, "give-honeypot=&give-form-id-prefix=11676-1&give-form-id=11676&give-form-title=Donate+to+Sangharsh+-+Mission+Mount+Everest+2021&give-current-url=https%3A%2F%2Fsangharsh.co%2Fdonate%2F&give-form-url=https%3A%2F%2Fsangharsh.co%2Fdonate%2F&give-form-minimum=100.00&give-form-maximum=10000000.00&give-form-hash=$hashval&give-price-id=custom&give-amount=100.00&give_stripe_payment_method=&payment-mode=stripe_checkout&give_first=jacob&give_last=maxon&give_email=jacobmaxon2%40gmail.com&give_action=purchase&give-gateway=stripe_checkout");
             $resp2 = curl_exec($ch);
-                $session = trim(strip_tags(capture($resp2,'sessionId: '',''')));
+                $session = trim(strip_tags(capture($resp2,'sessionId:','}')));
                 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://www.charitywater.org/donate/stripe');
