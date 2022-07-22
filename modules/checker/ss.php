@@ -238,7 +238,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $intent = "pi_$ippi";
             $stripejs = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
-            $sourcesrc = "src_$src"
+            $sourcesrc = "src_$src";
 
              /////////////////////////------------REQ-4--------------////////////////////////////////
 
