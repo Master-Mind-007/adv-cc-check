@@ -244,7 +244,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
 
             
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, #stripejs);
+            curl_setopt($ch, CURLOPT_URL, $stripejs);
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
