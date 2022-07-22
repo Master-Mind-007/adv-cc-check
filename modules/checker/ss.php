@@ -209,7 +209,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $resp2 = curl_exec($ch);
                 $session = trim(strip_tags(capture($resp2,'sessionId:','}')));
                 $sesstok = str_replace("'","","$session");
-                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm"
+                $confirmurl = "https://api.stripe.com/v1/payment_pages/$sesstok/confirm";
 
             /////////////////////////------------REQ--3--------------////////////////////////////////
 
@@ -238,7 +238,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $intent = "pi_$ippi";
             $stripejs = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
-            $sourcesrc = "src_$src"
+            $sourcesrc = "src_$src";
 
             /////////////////////////-------CHARITY-STRIP-----------/////////////////////////////////
 
@@ -339,7 +339,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | HahsVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc
+Result -» $result2 | HashVal - $hashval | SessionToken - $sesstok | ConfirmationURL - $confirmurl | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
