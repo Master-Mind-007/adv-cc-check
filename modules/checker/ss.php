@@ -268,7 +268,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
 
             /////////////////////////------------REQ-4-5--------------////////////////////////////////
             
-            $auth = "https://hooks.stripe.com/three_d_secure/authenticate?client_secret=$clientsecretsrc&livemode=true&merchant=acct_1FnGBxBVCZ9Tk8l4&return_url=https://hooks.stripe.com/redirect/complete/$sourcesrc?client_secret=$clientsecretsrc&source_redirect_slug=$slug&source=$sourcesrc&source_redirect_slug=$slug&usage=single_use"
+            $auth = "https://hooks.stripe.com/three_d_secure/authenticate?client_secret=$clientsecretsrc&livemode=true&merchant=acct_1FnGBxBVCZ9Tk8l4&return_url=https://hooks.stripe.com/redirect/complete/$sourcesrc?client_secret=$clientsecretsrc&source_redirect_slug=$slug&source=$sourcesrc&source_redirect_slug=$slug&usage=single_use";
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $auth);
