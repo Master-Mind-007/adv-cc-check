@@ -237,7 +237,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $intent = "pi_$ippi";
             $clientsecretpi = trim(strip_tags(capture($resp3,'client_secret": "','"')));
             $stripe = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
-            $stripejs = str_replace("\u0026","&","$stripe")
+            $stripejs = str_replace("\u0026","&","$stripe");
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
             $sourcesrc = "src_$src";
             $slug = trim(strip_tags(capture($resp3,'source_redirect_slug=','"')));
