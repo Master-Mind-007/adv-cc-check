@@ -233,14 +233,15 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
             curl_setopt($ch, CURLOPT_POSTFIELDS, "eid=NA&payment_method=$id&expected_amount=10000&last_displayed_line_item_group_details[subtotal]=10000&last_displayed_line_item_group_details[total_exclusive_tax]=0&last_displayed_line_item_group_details[total_inclusive_tax]=0&last_displayed_line_item_group_details[total_discount_amount]=0&last_displayed_line_item_group_details[shipping_rate_amount]=0&expected_payment_method_type=card&_stripe_account=acct_1FnGBxBVCZ9Tk8l4&key=pk_live_SMtnnvlq4TpJelMdklNha8iD");
             $resp3 = curl_exec($ch);
-            $ippi = trim(strip_tags(capture($resp3,'id": "pi_','"')));
+            $ippi = trim(strip_tags(capture($rep3,'id": "pi_','"')));
             $intent = "pi_$ippi";
             $clientsecretpi = trim(strip_tags(capture($resp3,'client_secret": "','"')));
-            $stripejs = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
+            $stripe = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
+            $stripejs = str_replace("\u0026","&","$stripe")
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
             $sourcesrc = "src_$src";
             $slug = trim(strip_tags(capture($resp3,'source_redirect_slug=','"')));
-            $clientsecretsrc = trim(strip_tags(capture($stripejs,'?client_secret','&')));
+            $clientsecretsrc = trim(strip_tags(capture($stripe,'?client_secret=','\')));
 
              /////////////////////////------------REQ-4--------------////////////////////////////////
 
@@ -417,7 +418,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | ConfirmationURL - $confirmurl | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5
+Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5 | Auth - $auth | ResponseAuth - $respauth
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
