@@ -388,7 +388,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final 
+Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | ConfirmationURL - $confirmurl | SourceSRC - $sourcesrc | FinalURL - $final 
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
