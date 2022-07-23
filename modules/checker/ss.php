@@ -241,7 +241,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             $src = trim(strip_tags(capture($resp3,'source": "src','"')));
             $sourcesrc = "src_$src";
             $slug = trim(strip_tags(capture($resp3,'source_redirect_slug=','"')));
-            $clientsecretsrc = trim(strip_tags(capture($stripe,'?client_secret=','\')));
+            $clientsecretsrc = trim(strip_tags(capture($stripe,'?client_secret=','\u')));
 
              /////////////////////////------------REQ-4--------------////////////////////////////////
 
