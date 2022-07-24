@@ -326,9 +326,9 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "");
                 $resp5 = curl_exec($ch);
-                $errorcode = trim(strip_tags(capture($resp5,'"code":"','"')));
-                $errordeclinecode = trim(strip_tags(capture($resp5,'"decline_code":"','"')));
-                $errormessagecode = trim(strip_tags(capture($resp5,'"message":"','"')));
+                $errorcode = trim(strip_tags(capture($resp5,'"code": "','"')));
+                $errordeclinecode = trim(strip_tags(capture($resp5,'decline_code": "','"')));
+                $errormessagecode = trim(strip_tags(capture($resp5,'"message": "','"')));
 
             }
             $info = curl_getinfo($ch);
