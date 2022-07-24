@@ -274,7 +274,7 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 $resp4 = curl_exec($ch);
-$slug = trim(strip_tags(capture($resp3,'FallbackMessageTitle">','<')));
+$resp0 = trim(strip_tags(capture($resp4,'FallbackMessageTitle">','<')));
                 
                 
             /////////////////////////------------REQ-4-5--------------////////////////////////////////
@@ -428,7 +428,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessage | 
 Decline Error -» $errorcode
-Result -» $result2 | Token - $id | HahsVal - $hashval | HookStripe- $resp4 SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5 | Auth - $auth | ResponseAuth - $respauth
+Result -» $result2 | Token - $id | HahsVal - $hashval | HookStripeResponse- $resp0 SessionToken - $sesstok | ClientSecret - $clientsecretpi $clientsecretsrc | PaymentIntent - $intent | URL - $stripejs | SourceSRC - $sourcesrc | FinalURL - $final | Verification - $respauth | Messgae- $errormessage5 | Auth - $auth | ResponseAuth - $respauth
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
