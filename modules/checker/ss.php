@@ -6,7 +6,7 @@
 
 /ss creditcard - Checks the Credit Card
 
-*/
+ */
 
 
 include __DIR__."/../config/config.php";
@@ -309,22 +309,30 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $final);
                 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Host: m.stripe.com',
-                'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
-                'Accept: */*',
-                'Accept-Language: en-US,en;q=0.5',
-                'Content-Type: text/plain;charset=UTF-8',
-                'Origin: https://m.stripe.network',
-                'Referer: https://m.stripe.network/inner.html'));
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                $headers = array();
+                $headers[] = 'api.stripe.com';
+                $headers[] = 'method: GET';
+                $headers[] = 'scheme: https';
+                $headers[] = 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9';
+                $headers[] = 'accept-language: en-US,en;q=0.9';
+                $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
+                $headers[] = 'sec-ch-ua-mobile: ?0';
+                $headers[] = 'sec-ch-ua-platform: "Windows"';
+                $headers[] = 'sec-fetch-dest: document';
+                $headers[] = 'sec-fetch-mode: navigate';
+                $headers[] = 'sec-fetch-site: none';
+                $headers[] = 'sec-fetch-user: ?1';
+                $headers[] = 'upgrade-insecure-requests: 1';
+                $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36';
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_HEADER, 1);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-                curl_setopt($ch, CURLOPT_POSTFIELDS, "");
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 $resp5 = curl_exec($ch);
                 $errorcode = trim(strip_tags(capture($resp5,'"code": "','"')));
                 $errordeclinecode = trim(strip_tags(capture($resp5,'decline_code": "','"')));
