@@ -431,7 +431,7 @@ Time -» <b>$time</b><b>s</b>
                   'message_id'=>$messageidtoedit,
                   'text'=>"<b>Card:</b> <code>$lista</code>
 <b>Status -» Declined! ❌
-Response -» $token | $lookupdata
+Response -» $roll4
 Decline Error -» roll 5 - $roll5
 Result -»
 Gateway -» 1💲 STRIPE
