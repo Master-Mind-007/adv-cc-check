@@ -33,7 +33,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
     }else{
         $messageidtoedit1 = bot('sendmessage',[
           'chat_id'=>$chat_id,
-          'text'=>"<b>Wait for Result...</b>",
+          'text'=>"<b>Processing...</b>",
           'parse_mode'=>'html',
           'reply_to_message_id'=> $message_id
 
@@ -185,6 +185,14 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "");
                 $resp1 = curl_exec($ch);
                 $hashval = trim(strip_tags(capture($resp1,'give-form-hash" value="','"')));
+                
+                 $messageidtoedit1 = bot('sendmessage',[
+          'chat_id'=>$chat_id,
+          'text'=>"<b>Checking in progess.. ⚫️</b>",
+          'parse_mode'=>'html',
+          'reply_to_message_id'=> $message_id
+
+        ]);
 
                 //////////////////////////////////////------REQ-2-------////////////////////////////////////////
 
@@ -242,6 +250,14 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 $sourcesrc = "src_$src";
                 $slug = trim(strip_tags(capture($resp3,'source_redirect_slug=','"')));
                 $clientsecretsrc = trim(strip_tags(capture($stripe,'?client_secret=','\u')));
+                
+                                 $messageidtoedit1 = bot('sendmessage',[
+          'chat_id'=>$chat_id,
+          'text'=>"<b>Checking in progess.. 🔴</b>",
+          'parse_mode'=>'html',
+          'reply_to_message_id'=> $message_id
+
+        ]);
 
                 /////////////////////////------------REQ-4--------------////////////////////////////////
 
@@ -275,6 +291,14 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 $resp4 = curl_exec($ch);
                 $resp0 = trim(strip_tags(capture($resp4,'FallbackMessageTitle">','<')));
+                
+                                                 $messageidtoedit1 = bot('sendmessage',[
+          'chat_id'=>$chat_id,
+          'text'=>"<b>Checking in progess.. 🟡</b>",
+          'parse_mode'=>'html',
+          'reply_to_message_id'=> $message_id
+
+        ]);
 
 
                 /////////////////////////------------REQ-4-5--------------////////////////////////////////
@@ -301,6 +325,14 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "");
                 $respauth = curl_exec($ch);
+                
+                $messageidtoedit1 = bot('sendmessage',[
+          'chat_id'=>$chat_id,
+          'text'=>"<b>Checking in progess.. 🟢</b>",
+          'parse_mode'=>'html',
+          'reply_to_message_id'=> $message_id
+
+        ]);
 
                 /////////////////////////------------REQ-5--------------////////////////////////////////
 
@@ -412,13 +444,13 @@ Time -» <b>$time</b><b>s</b>
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» Declined! ❌
-Response -» $errormessagecode
-Decline Error -» $errorcode
-Result -» $errordeclinecode | $final
-Gateway -» 1💲 or 100rs STRIPE
-Time -» <b>$time</b><b>s</b>
+                  'text'=>"💳<b>Card:</b> <code>$lista</code>
+<b>➤Status -» Declined! ❌
+➤Response -» $errormessagecode
+➤Decline Error -» $errorcode
+➤Result -» $errordeclinecode
+➤Gateway -» 1💲 or 100rs STRIPE
+➤Time -» <b>$time</b><b>s</b>
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
@@ -429,8 +461,8 @@ Time -» <b>$time</b><b>s</b>
 <b>Issuers Contact -»</b> $phone
 <b>----------------------------</b>
 
-<b>Checked By <a href='tg://user?id=$userId'>$firstname</a></b>
-<b>Bot By: <a href='t.me/MasterMind_Mikhil'>𝐌𝐚𝐬𝐭𝐞𝐫𝐌𝐢𝐧𝐝</a></b>",
+<b>🥷 Checked By <a href='tg://user?id=$userId'>$firstname</a></b>
+<b>👨‍💻 Bot By: <a href='t.me/MasterMind_Mikhil'>𝐌𝐚𝐬𝐭𝐞𝐫𝐌𝐢𝐧𝐝</a></b>",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
 
