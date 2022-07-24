@@ -33,7 +33,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
     }else{
         $messageidtoedit1 = bot('sendmessage',[
           'chat_id'=>$chat_id,
-          'text'=>"<b>Processing...</b>",
+          'text'=>"<b>Checking in progress...<b>",
           'parse_mode'=>'html',
           'reply_to_message_id'=> $message_id
 
@@ -186,13 +186,6 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 $resp1 = curl_exec($ch);
                 $hashval = trim(strip_tags(capture($resp1,'give-form-hash" value="','"')));
 
-                $messageidtoedit1 = bot('sendmessage',[
-         'chat_id'=>$chat_id,
-         'text'=>"<b>Checking in progess.. ⚫️</b>",
-         'parse_mode'=>'html',
-         'reply_to_message_id'=> $message_id
-
-       ]);
 
                 //////////////////////////////////////------REQ-2-------////////////////////////////////////////
 
@@ -251,13 +244,6 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 $slug = trim(strip_tags(capture($resp3,'source_redirect_slug=','"')));
                 $clientsecretsrc = trim(strip_tags(capture($stripe,'?client_secret=','\u')));
 
-                bot('editMessageText',[
-                  'chat_id'=>$chat_id,
-                  'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Checking in progess.. 🔴</b>",
-                  'parse_mode'=>'html',
-                  'disable_web_page_preview'=>'true'
-                    ]);
 
                 /////////////////////////------------REQ-4--------------////////////////////////////////
 
@@ -292,14 +278,6 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 $resp4 = curl_exec($ch);
                 $resp0 = trim(strip_tags(capture($resp4,'FallbackMessageTitle">','<')));
 
-                bot('editMessageText',[
-                  'chat_id'=>$chat_id,
-                  'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Checking in progess.. 🟡</b>",
-                  'parse_mode'=>'html',
-                  'disable_web_page_preview'=>'true'
-                    ]);
-
 
 
                 /////////////////////////------------REQ-4-5--------------////////////////////////////////
@@ -326,14 +304,6 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "");
                 $respauth = curl_exec($ch);
-
-                bot('editMessageText',[
-                  'chat_id'=>$chat_id,
-                  'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Checking in progess.. 🟢</b>",
-                  'parse_mode'=>'html',
-                  'disable_web_page_preview'=>'true'
-                    ]);
 
 
                 /////////////////////////------------REQ-5--------------////////////////////////////////
