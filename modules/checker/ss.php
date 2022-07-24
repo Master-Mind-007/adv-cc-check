@@ -406,7 +406,7 @@ Time -» <b>$time</b><b>s</b>
                   'message_id'=>$messageidtoedit,
                   'text'=>"<b>Card:</b> <code>$lista</code>
 <b>Status -» Declined! ❌
-Response -» $errormessagecode | $final | $resp0
+Response -» $errormessagecode
 Decline Error -» $errorcode
 Result -» $errordeclinecode
 Gateway -» 1💲 or 100rs STRIPE
