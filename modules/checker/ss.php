@@ -387,11 +387,11 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» CVV or CCN ✅
-Response -» $result2
-Gateway -» 1💲 STRIPE
-Time -» <b>$time</b><b>s</b>
+                  'text'=>"<b>💳Card:</b> <code>$lista</code>
+<b>➤Status -» CVV or CCN ✅
+➤Response -» $errormessagecode | $final
+➤Gateway -» 1💲 STRIPE
+T➤ime -» <b>$time</b><b>s</b>
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
@@ -415,11 +415,13 @@ Time -» <b>$time</b><b>s</b>
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» API Down ❌
-Response -» $result2
-Gateway -» 1 Charge
-Time -» <b>$time</b><b>s</b>
+                  'text'=>"💳<b>Card:</b> <code>$lista</code>
+<b>➤Status -» API Down ❌
+➤Response -» $errormessagecode
+➤Decline Error -» $errorcode
+➤Result -» $errordeclinecode
+➤Gateway -» 1 Charge
+➤Time -» <b>$time</b><b>s</b>
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
