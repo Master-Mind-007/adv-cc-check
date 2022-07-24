@@ -344,7 +344,7 @@ Time -» <b>$time</b><b>s</b>
                   'text'=>"<b>Card:</b> <code>$lista</code>
 <b>Status -» Declined! ❌
 Response -» $tok |csrf - $csrf
-Decline Error -» roll 2 - $roll2 | roll3 - $roll3
+Decline Error -» roll 2 - $roll2
 Result -» $finger
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
