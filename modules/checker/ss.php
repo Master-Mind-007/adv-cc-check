@@ -251,7 +251,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Checking in progess.. 🟢</b>",
+                  'text'=>"<b>Checking in progess.. 🔴</b>",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                     ]);
@@ -292,7 +292,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Checking in progess.. 🟢</b>",
+                  'text'=>"<b>Checking in progess.. 🟡</b>",
                   'parse_mode'=>'html',
                   'disable_web_page_preview'=>'true'
                     ]);
