@@ -274,7 +274,9 @@ curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 $resp4 = curl_exec($ch);
-
+$slug = trim(strip_tags(capture($resp3,'FallbackMessageTitle">','<')));
+                
+                
             /////////////////////////------------REQ-4-5--------------////////////////////////////////
             
             $auth = "https://hooks.stripe.com/three_d_secure/authenticate?client_secret=$clientsecretsrc&livemode=true&merchant=acct_1FnGBxBVCZ9Tk8l4&return_url=https://hooks.stripe.com/redirect/complete/$sourcesrc?client_secret=$clientsecretsrc&source_redirect_slug=$slug&source=$sourcesrc&source_redirect_slug=$slug&usage=single_use";
