@@ -408,7 +408,7 @@ Time -» <b>$time</b><b>s</b>
 <b>Status -» Declined! ❌
 Response -» $errormessagecode
 Decline Error -» $errorcode
-Result -» $errordeclinecode
+Result -» $errordeclinecode | $final
 Gateway -» 1💲 or 100rs STRIPE
 Time -» <b>$time</b><b>s</b>
 
