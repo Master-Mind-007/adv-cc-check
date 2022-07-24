@@ -199,36 +199,38 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 ///////////////////////////////--------------REQUEST--2-------------/////////////////////////////////////////
 
 
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details');
-                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                $headers = array();
-                $headers[] = 'Host: donate.unicef.org.uk';
-                $headers[] = 'method: POST';
-                $headers[] = 'path: /thankyoufordonating/single/1/donate/details';
-                $headers[] = 'scheme: https';
-                $headers[] = 'Accept-Language: en-US,en;q=0.5';
-                $headers[] = 'Content-Type: application/x-www-form-urlencoded';
-                $headers[] = 'Origin: https://donate.unicef.org.uk';
-                $headers[] = 'Referer: https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details';
-                $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
-                $headers[] = 'sec-ch-ua-mobile: ?0';
-                $headers[] = 'sec-ch-ua-platform: "Windows"';
-                $headers[] = 'sec-fetch-dest: empty';
-                $headers[] = 'sec-fetch-mode: cors';
-                $headers[] = 'sec-fetch-site: same-origin';
-                $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
-                curl_setopt($ch, CURLOPT_HEADER, 1);
-                curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-                curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, '_csrf=$csrf&email=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details');
-                $roll2 = curl_exec($ch);
+$data = "_csrf=$csrf&email=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_POST, 1);
+$headers = array();
+$headers[] = 'Host: donate.unicef.org.uk';
+$headers[] = 'method: POST';
+$headers[] = 'path: /thankyoufordonating/single/1/donate/details';
+$headers[] = 'scheme: https';
+$headers[] = 'Accept-Language: en-US,en;q=0.5';
+$headers[] = 'Content-Type: application/x-www-form-urlencoded';
+$headers[] = 'Origin: https://donate.unicef.org.uk';
+$headers[] = 'Referer: https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details';
+$headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
+$headers[] = 'sec-ch-ua-mobile: ?0';
+$headers[] = 'sec-ch-ua-platform: "Windows"';
+$headers[] = 'sec-fetch-dest: empty';
+$headers[] = 'sec-fetch-mode: cors';
+$headers[] = 'sec-fetch-site: same-origin';
+$headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+$roll2 = curl_exec($ch);
 
 
                 ///////////////////////////////--------------REQUEST--3-------------/////////////////////////////////////////
@@ -255,13 +257,13 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
                 curl_setopt($ch, CURLOPT_HEADER, 1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 $roll3 = curl_exec($ch);
-                $tok = trim(strip_tags(capture($roll3, "var btToken = '", "',")));
+                $tok = trim(strip_tags(capture($roll3, "var btToken", ";")));
                 $author = base64_decode($tok);
                 $finger = trim(strip_tags(capture($author, 'authorizationFingerprint":"', '"')));
 
