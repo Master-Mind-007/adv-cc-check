@@ -338,7 +338,7 @@ if(strpos($message, "/ss ") === 0 || strpos($message, "!ss ") === 0){
             ###END OF CHECKER PART###
 
 
-            if(strpos($result2, 'succeeded')) {
+            if(strpos($resp5, 'succeeded')) {
                 addTotal();
                 addUserTotal($userId);
                 addCVV();
@@ -370,7 +370,7 @@ Time -» <b>$time</b><b>s</b>
 
               ]);
             }
-            elseif($result2 == null && !$stripeerror) {
+            elseif($resp5 == null && !$stripeerror) {
                 addTotal();
                 addUserTotal($userId);
                 bot('editMessageText',[
