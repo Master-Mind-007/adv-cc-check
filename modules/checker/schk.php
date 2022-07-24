@@ -271,39 +271,48 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 ///////////////////////////////--------------REQUEST--4-------------/////////////////////////////////////////
 
 
-                $paydata = '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"d77f5f72-558b-40e7-9d26-3794db0793bc"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"$cc","expirationMonth":"$mes","expirationYear":"$ano","cvv":"$cvv"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}';
-                $bearer ="Authorization: Bearer $finger";
+                $option = '"';
+$dim = '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"d77f5f72-558b-40e7-9d26-3794db0793bc"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"';
+$me = "authorizationFingerprint";
+$da = "expirationMonth";
+$du = "expirationYear";
+$di = "cvv";
+$space = " ";
+$shim ="$cc$option,$option$da$option:$option$mes$option,$option$du$option:$option$ano$option,$option$di$option:$option$cvv";
+$rim = '"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}';
+$lookupdata = "$dim$shim$rim";
+$bearer ="Authorization: Bearer $finger";
 
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
-                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                $headers = array();
-                $headers = array();
-                $headers[] = 'Host: payments.braintree-api.com';
-                $headers[] = 'method: POST';
-                $headers[] = 'path: /graphq';
-                $headers[] = 'scheme: https';
-                $headers[] = 'Accept-Language: en-US,en;q=0.5';
-                $headers[] = 'Content-Type: application/json';
-                $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
-                $headers[] = $bearer;
-                $headers[] = 'sec-ch-ua-platform: "Windows"';
-                $headers[] = 'Braintree-Version: 2018-05-10';
-                $headers[] = 'sec-fetch-mode: cors';
-                $headers[] = 'sec-fetch-site: same-origin';
-                $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-                curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $paydata);
-                $roll4 = curl_exec($ch);
-                $token = trim(strip_tags(capture($roll4, 'token":"', '"')));
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_POST, 1);
+$headers = array();
+$headers = array();
+$headers[] = 'Host: payments.braintree-api.com';
+$headers[] = 'method: POST';
+$headers[] = 'path: /graphq';
+$headers[] = 'scheme: https';
+$headers[] = 'Accept-Language: en-US,en;q=0.5';
+$headers[] = 'Content-Type: application/json';
+$headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
+$headers[] = $bearer;
+$headers[] = 'sec-ch-ua-platform: "Windows"';
+$headers[] = 'Braintree-Version: 2018-05-10';
+$headers[] = 'sec-fetch-mode: cors';
+$headers[] = 'sec-fetch-site: same-origin';
+$headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $lookupdata);
+$roll4 = curl_exec($ch);
+$token = trim(strip_tags(capture($roll4, 'token":"', '"')));
 
 
                 ///////////////////////////////--------------REQUEST--5-------------/////////////////////////////////////////
