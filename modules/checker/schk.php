@@ -259,7 +259,7 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 $roll3 = curl_exec($ch);
                 $tok = trim(strip_tags(capture($roll3, "var btToken = '", "',")));
                 $author = base64_decode($tok);
-                $finger = trim(strip_tags(getStr($author, 'authorizationFingerprint":"', '"')));
+                $finger = trim(strip_tags(capture($author, 'authorizationFingerprint":"', '"')));
 
             }
             $info = curl_getinfo($ch);
